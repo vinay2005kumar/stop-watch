@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    border:0;
+}
+.name{
+    position: relative;
+    bottom: 200px;
+    left:260px;
+    font-size: 40px;
+}
+body{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.text{
+    width: 300px;
+    height: 60px;
+    border:1px solid black;
+    background-color: aqua;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    position: relative;
+    left: 30px;
+}
+.start,.stop,.reset{
+    display: inline-block;
+    width: 70px;
+    height: 30px;
+    border: 2px solid black;
+    margin:25px;
+    border-radius: 25px;
+    text-align: center;
+    background-color:black;
+    color:white;
+    box-shadow: 0 0 10px orange;
+}
+.main{
+    border:2px solid black;
+    padding: 50px;
+    border-radius: 25px;
+    background: linear-gradient(90deg,#00a19d,#0c87b7,#cb49ff,#ff6666,#f9d923);
+    position: relative;
+    right: 100px;
+    
+}
+.start:hover,.stop:hover,.reset:hover{
+    color: #cb49ff;
+    cursor: pointer;
+}
+@media screen and (max-width:700px){
+    body{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .main{
+        position: absolute;
+        left: 0.6em;
+        top:13em;
+        width: 67%;
+        height: 20%;
+    }
+    .text{
+        position: absolute;
+        left: 0.8em;
+        font-size: 1.5em;
+    }
+    .buttons{
+        display: flex;
+        position: absolute;
+        bottom: 2em;
+        left: -0.1em;
+        
+    }
+    .stop{
+        position: absolute;
+        left: 7em;
+    }
+    .reset{
+        position: absolute;
+        left: 14em;
+    }
+    .name{
+        position: absolute;
+        font-size: 1.9em;
+        font-weight: bold;
+        top:5em;
+        left: 2.6em;
+    }
+}

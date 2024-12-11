@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stopwatch</title>
+    <link rel="stylesheet" href="stopwatch.css">
+</head>
+<body>
+    <div class="name">STOP WATCH</div>
+    <div class="main">
+    <div class="text">
+        00:00:00:000
+    </div>
+    <div class="buttons">
+        <div class="start" onclick="start()">start</div>
+        <div class="stop" onclick="stop()">stop</div>
+        <div class="reset" onclick="reset()">reset</div>
+    </div>
+
+    </div>
+    <script type="text/javascript">
+        let text=document.querySelector(".text");
+        let start=document.querySelector(".start");
+        let reset=document.querySelector(".reset");
+        let stop=document.querySelector(".stop");
+        let ms=0,s=0,min=0,h=0,timeref;
+        start.onclick=function(){
+            timeref=setInterval(updateTime,10);
+        }
+        function updateTime(){
+          ms=ms+10;
+          if(ms==1000){
+            ms=0;
+            s=s+1;
+            if(s==60){
+                s=0;
+                min=min+1;
+                if(min==60){
+                    min=0;
+                    h=h+1;
+                }
+            }
+          }
+          console.log(typeof(s));
+          text.innerHTML = `${h<10?'0'+h:h}:${min<10?'0'+min:min}:${s<10?'0'+s:s}:${ms}`
+        }
+        stop.addEventListener('click',function(){
+            clearInterval(timeref);
+        })
+        reset.addEventListener('click',function(){
+            h=0;
+            min=0;
+            s=0;
+            ms=0;
+            clearInterval(timeref);
+            text.innerHTML=`${'0'+h}:${'0'+min}:${'0'+s}:${'0'+'0'+ms}`;
+        })
+    </script>
+</body>
+</html>
